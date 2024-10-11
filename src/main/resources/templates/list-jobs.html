@@ -12,10 +12,34 @@
 
   <!-- TODO #1 - Use a loop to display job results in a table. -->
 
-  <table th:fragment="list-jobs" class="job-listing">
-    <tr th:each="job : ${jobs}">
-      <td th:text="${job}"></td>
-    </tr>
+  <table th:fragment="list-jobs" class="job-listing" th:each="job : ${jobs}">
+    <th:block th:each="object : ${job}">
+      <tr  >
+        <th th:text="ID" ></th>
+        <td th:text="${object.getId()}"></td>
+      </tr>
+      <tr  >
+        <th th:text="Name" ></th>
+        <td th:text="${object.getName()}"></td>
+      </tr>
+      <tr  >
+        <th th:text="Employer" ></th>
+        <td th:text="${object.getEmployer()}"></td>
+      </tr>
+      <tr  >
+        <th th:text="Location" ></th>
+        <td th:text="${object.getLocation()}"></td>
+      </tr>
+      <tr  >
+        <th th:text="'Position Type'"></th>
+        <td th:text="${object.getPositionType()}"></td>
+      </tr>
+      <tr  >
+        <th th:text="Skill" ></th>
+        <td th:text="${object.getCoreCompetency()}"></td>
+      </tr>
+    </th:block>
+
   </table>
 
 </div>
